@@ -1,6 +1,7 @@
 import requests
 from tkinter import *
 
+
 def get_weather():
     api_key = "2f7671995fd280c1b8c10843d66b3f93"
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
@@ -29,6 +30,7 @@ def get_weather():
         put_disc.config(text="Description = " + str(weather_info))
     else:
         print(" City Not Found ")
+
 
 windows = Tk()
 windows.title("My Weather")
