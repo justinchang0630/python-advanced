@@ -1,5 +1,6 @@
-import requests
+import requests,json
 import matplotlib.pyplot as plt
+from tkinter import *
 base_url = "https://data.epa.gov.tw/api/v1/"
 api_num = "aqx_p_432?"
 offset = "0"
@@ -33,3 +34,30 @@ plt.plot(a_list,b_list, "r-^", label="AQI")
 plt.plot(a_list,c_list, "g-o", label="PM2.5")
 plt.legend(loc="best")
 plt.show()
+
+win = Tk()
+win.title("hi")
+btn1 = Button(win, text="讀取七天，天氣預報", command=get_data)
+btn1.pack()
+
+put_day1=Label(win,text = "", fg = "#588795", bg = "#00FFFF")
+put_day2=Label(win,text = "", fg = "#588795", bg = "#00FFFF")
+put_day3=Label(win,text = "", fg = "#588795", bg = "#00FFFF")
+put_day4=Label(win,text = "", fg = "#588795", bg = "#00FFFF")
+put_day5=Label(win,text = "", fg = "#588795", bg = "#00FFFF")
+put_day6=Label(win,text = "", fg = "#588795", bg = "#00FFFF")
+put_day7=Label(win,text = "", fg = "#588795", bg = "#00FFFF")
+input_lat=Entry(win)
+input_lat.pack()
+input_lon=Entry(win)
+input_lon.pack()
+
+put_day1.pack()
+put_day2.pack()
+put_day3.pack()
+put_day4.pack()
+put_day5.pack()
+put_day6.pack()
+put_day7.pack()
+win.mainloop()
+
