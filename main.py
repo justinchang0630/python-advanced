@@ -2,20 +2,7 @@ import requests, json
 import matplotlib.pyplot as plt
 from tkinter import *
 
-# base_url = "https://tcgbusfs.blob.core.windows.net/blobyoubike/YouBikeTP.json"
-# send_url = base_url
-# print("%s\n" % send_url)
-# response = requests.get(send_url)
-# info = response.json()
-# for i in info["retVal"]:
-#     # print(info["retVal"][i]["sarea"])
-#     if info["retVal"][i]["sarea"] == "松山區":
-#         # print(info["retVal"][i])
-#         print("地點=" + info["retVal"][i]["sna"])
-#         print("地區=" + info["retVal"][i]["sarea"])
-#         print("總車輛=" + info["retVal"][i]["tot"])
-#         print("剩餘車輛=" + info["retVal"][i]["sbi"])
-#         print()
+
 
 
 def get_data():
