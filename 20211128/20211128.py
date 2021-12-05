@@ -1,40 +1,54 @@
 from pytube import YouTube
+from tkinter import *
 
 
 def get_movie():
     get_url = url_info.get()
-    get_name = name_info.get() + ".mp4"
-    yt = Youtube(get_url)
-    print("we are downloading videos")
+    get_name = name_info.get() + ".gif"
+    #下載網址
+    #yt = YouTube("https://youtu.be/F3OvNARZMDE")
+    yt = YouTube(get_url)
+    print("We are downloading video...")
+
+    #選擇下載串流
     video = yt.streams
-    result = video.filter(progressive=True, subtype="mp4", res="360p")
+    result = video.filter(progressive=True, subtype="gif", res="360p")
     print(result)
-    dest = "20211128"
+
+    #下載mp4
+    dest = "web-crawler/adv-12/"
     load_name = get_name
-    result[0].download(progressive=True, subtype="mp4", res="360p")
-    print(result[0])
-    print("Download Finished")
-    movie_name.config(text="電影名稱:" + get_name)
-    movie_time.config(text="電影時間:" + str(yt.length) + "sec")
+    result[0].download(output_path=dest, filename=load_name)
+    print("Download finished...")
+
+    movie_name.config(text="電影名稱 = " + get_name)
+    movie_time.config(text="電影時間 = " + str(yt.length) + " sec")
 
 
-# windows = Tk()
-# windows.title("下載影片")
+windows = Tk()
+windows.title("My Gif")
 
-# Youtube("https://www.youtube.com/")
-yt = YouTube("https://youtu.be/1iXJDHDmEdk")
-print("we are downloading videos")
+url = Label(windows, text="請輸入下載網址", font=('Arial', 12))
+url.grid(row=0, column=0)
+url_info = Entry(windows)
+url_info.grid(row=0, column=1)
 
-video = yt.streams
-length = len(video)
-for i in range(length):
-    print(video[i])
-print("影片名稱:", yt.title)
-print("影片作者:", yt.author)
-print("影片長度:", yt.length, "秒")
-print("縮圖網址:", yt.thumbnail_url)
+name = Label(windows, text="請輸入影片名稱", font=('Arial', 12))
+name.grid(row=1, column=0)
+name_info = Entry(windows)
+name_info.grid(row=1, column=1)
 
-result[0].download(output_path=dest, filename=fname)
+btn = Button(windows, text='Download', command=get_movie)
+btn.grid(row=2, columnspan=2)
 
-clip = VideoFileClip(dest + fname)
-clip.preview()
+movie_name = Label(windows, text="")
+movie_name.grid(row=3, column=0)
+
+movie_time = Label(windows, text="")
+movie_time.grid(row=4, column=0)
+
+movie_res = Label(windows, text="")
+movie_res.grid(row=5, column=0)
+
+windows.geometry("300x150")
+windows.mainloop()
