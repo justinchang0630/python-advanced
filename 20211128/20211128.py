@@ -4,7 +4,7 @@ from tkinter import *
 
 def get_movie():
     get_url = url_info.get()
-    get_name = name_info.get() + ".gif"
+    get_name = name_info.get() + ".mp4"
     #下載網址
     #yt = YouTube("https://youtu.be/F3OvNARZMDE")
     yt = YouTube(get_url)
@@ -12,7 +12,7 @@ def get_movie():
 
     #選擇下載串流
     video = yt.streams
-    result = video.filter(progressive=True, subtype="gif", res="360p")
+    result = video.filter(progressive=True, subtype="mp4", res="360p")
     print(result)
 
     #下載mp4

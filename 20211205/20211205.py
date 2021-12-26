@@ -5,7 +5,7 @@ from tkinter import *
 
 
 def cut_video():
-    video_path = "web-crawler/adv-12/哈.mp4"
+    video_path = "web-crawler/adv-12/雪兒.mp4"
     if os.path.isfile(video_path):
         clip = VideoFileClip(video_path)
         clip = clip.subclip(int(url_info.get()), int(name_info.get()))
@@ -18,9 +18,9 @@ def cut_video():
             new_path = base_path + new_file + str(i) + ".mp4"
         clip.write_videofile(new_path)
 
-    if (state.get()):
-        print("checkval = True")
-        clip.write_gif(base_path + new_file + str(i) + ".gif")
+        if (state.get()):
+            print("checkval = True")
+            clip.write_gif(base_path + new_file + str(i) + ".gif")
     else:
         exit()
 
